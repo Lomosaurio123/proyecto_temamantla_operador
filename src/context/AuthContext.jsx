@@ -26,7 +26,7 @@ export const AuthContextProvider = ( { children } ) => {
 
     useEffect(() => {
         
-        const user = JSON.parse( localStorage.getItem('user') );
+        const user = JSON.parse( localStorage.getItem('operador') );
 
         //Colocara el estado actual del usuario dependiendo del local storage
 

@@ -65,14 +65,20 @@ form {
 
 }
 
+label{
+  color: #1c093c;
+  font-size: 14px;
+}
+
 input {
 
   width: 100%;
   font-weight: 400;
   padding: 8px 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1.2px solid #c4cae0;
   margin-top: 5px;
+  box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -108,4 +114,84 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+
+.beneficiarios {
+
+  background-color: #ffff;
+  width: 100%;
+  padding: 35px 40px;
+
+}
+
+.leyenda {
+
+  margin-bottom: 10px;
+  margin-top: 15px;
+
+}
+
+@media screen and (min-width: 650px) {
+  .beneficiarios {
+    background-color: #ffff;
+    width: 95%;
+    min-width: 420px;
+    padding: 35px 40px;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.15);
+ }
+
+}
+
+.radio {
+
+  background-color: none;
+  box-shadow: 0px 0px 0px;
+
+}
+
+.number {
+  background-color: #E20056;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+b {
+  border-bottom: 1px solid #E20056;
+  padding: 0 0 4px;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.number2 {
+  background-color: #6f6df4;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
 }

@@ -8,7 +8,7 @@ export const useLogout = () => {
 
         //quitar el usuario del storage
 
-        localStorage.removeItem( 'user' );
+        localStorage.removeItem( 'operador' );
 
         //dispatch logout action
 
