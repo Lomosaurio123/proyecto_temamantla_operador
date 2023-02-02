@@ -66,9 +66,9 @@ export const BeneficiarioPage = () => {
 
     if( !validFormat ) Swal.fire('Error', `Verifica que la clave haya sido escrita correctamente`, 'error' );
 
-    if( !validInfoClave ) Swal.fire('Error', `Verifica que la info corresponda con la clave de elector`, 'error' );
+    else if( !validInfoClave ) Swal.fire('Error', `Verifica que la info corresponda con la clave de elector`, 'error' );
 
-    if( !validEdadClave ) Swal.fire('Error', `Verifica que la edad corresponda a la clave de elector`, 'error' );
+    else if( !validEdadClave ) Swal.fire('Error', `Verifica que la edad corresponda a la clave de elector`, 'error' );
 
     const validData = ( validFormat && validInfoClave && validEdadClave );
 

@@ -33,10 +33,10 @@ export const LogInPage = () => {
 
       <center><img src = {logo} alt='logo' height = "200px" width = "300px" data-aos = "fade-up" data-aos-duration="1200" /> </center>
 
-      <h1 data-aos = "fade-up" data-aos-duration="1200"> Bienvenido: </h1>
-      <p data-aos = "fade-up" data-aos-duration="1200"> Ingresa la clave de operador </p>
+      <h1> Bienvenido: </h1>
+      <p> Ingresa la clave de operador </p>
 
-      <form data-aos = "fade-up" data-aos-duration="1200" onSubmit={handleSubmit} > 
+      <form onSubmit={handleSubmit}> 
 
         <div className='row'>
 
