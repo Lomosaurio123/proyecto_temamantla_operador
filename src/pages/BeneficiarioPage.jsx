@@ -72,6 +72,8 @@ export const BeneficiarioPage = () => {
 
     const validData = ( validFormat && validInfoClave && validEdadClave );
 
+    //Despues de validar los datos comienza el proceso de alta
+
     if( validData ) {
 
       const beneficiario = {
@@ -86,7 +88,8 @@ export const BeneficiarioPage = () => {
         facebook : facebook,
         municipio : municipio,
         seccion : seccion,
-        beneficio : beneficio
+        beneficio : beneficio,
+        afiliacion : ''
 
       }
 
@@ -128,9 +131,9 @@ export const BeneficiarioPage = () => {
             setClave_elector('');
             setTelefono('');
             setFacebook('');
-            setMunicipio('');
             setSeccion('');
             setBeneficio('');
+            setError(null);
             Swal.fire('Correcto!!', `Datos almacenados con exito`, 'success' );
     
           }
