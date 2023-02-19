@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import Select from "react-select";
-import { result } from "../data/municipios";
+import { result, array_secciones_municipios } from "../data/municipios";
 import { validarFormatoClave, validarInfoClave, validarEdadClave } from '../helpers/valdiations'
 import { useAuthContext } from '../hooks/useAuthContext'
 import Swal from 'sweetalert2';
@@ -35,6 +35,9 @@ export const BeneficiarioPage = () => {
 
   const [error, setError] = useState(null); 
 
+  const [secciones, setSecciones] = useState();
+  const [seccionesDisponible, setSeccionesDisponible] = useState(true);
+
   //Animacion
 
   useEffect(() => {
@@ -42,6 +45,18 @@ export const BeneficiarioPage = () => {
     AOS.init()
   
   }, [])
+
+  //Mostrar las secciones con base en el municipio
+
+  const handleSelect = ( selected ) => {
+
+    setSeccionesDisponible( false );
+
+    setMunicipio( selected );
+    //Creamos la data con base en el muncipio seleccionado
+    setSecciones( array_secciones_municipios[ selected.toUpperCase() ].map(item => ({ value: item, label: item })) );
+
+  }
 
   //Subir beneficiario
 
@@ -131,7 +146,6 @@ export const BeneficiarioPage = () => {
             setClave_elector('');
             setTelefono('');
             setFacebook('');
-            setSeccion('');
             setBeneficio('');
             setError(null);
             Swal.fire('Correcto!!', `Datos almacenados con exito`, 'success' );
@@ -259,13 +273,25 @@ export const BeneficiarioPage = () => {
                       name="color"
                       required = {true}
                       options={result}
-                      onChange = { (choice) => setMunicipio( choice.value ) }
+                      onChange = { (choice) => handleSelect( choice.value ) }
                   />
                 </div>
 
                 <div className="column">
                     <label itemID="seccion">Seccion :</label>
-                    <input required = {true} type="text" id="seccion" placeholder="Escriba la sección" onChange = { (e) => setSeccion( e.target.value ) } value = { seccion } />
+                    <br /><br />
+                    <Select
+                      isDisabled = { seccionesDisponible }
+                      className="basic-single"
+                      classNamePrefix="select"
+                      isLoading={true}
+                      isClearable={true}
+                      isSearchable={true}
+                      name="color"
+                      required = {true}
+                      options={secciones}
+                      onChange = { (choice) => setSeccion( choice.value ) }
+                    />
                 </div>
 
             </div>
