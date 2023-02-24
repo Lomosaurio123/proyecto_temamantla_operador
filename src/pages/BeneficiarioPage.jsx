@@ -119,13 +119,14 @@ export const BeneficiarioPage = () => {
         
         if (result.isConfirmed) {
 
-          const response = await fetch('/api/beneficiarios', {
+          const response = await fetch('https://proyectoam-production.up.railway.app/api/beneficiarios', {
             method: 'POST',
             body: JSON.stringify(beneficiario),
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${user.token}`
-            }
+              'Authorization': `Bearer ${user.token}`,
+            },
+            mode : 'cors',
           })
     
           const json = await response.json();
