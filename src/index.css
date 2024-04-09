@@ -98,7 +98,7 @@ button {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  background: #E20056;
+  background: #A91643;
   color: #ffff;
 
 }
@@ -159,7 +159,7 @@ div.error {
 }
 
 .number {
-  background-color: #E20056;
+  background-color: #A91643;
   color: #fff;
   height: 30px;
   width: 30px;
@@ -173,7 +173,7 @@ div.error {
 }
 
 b {
-  border-bottom: 1px solid #E20056;
+  border-bottom: 1px solid #A91643;
   padding: 0 0 4px;
 }
 
