@@ -103,7 +103,7 @@ export const BeneficiarioPage = () => {
         
         if (result.isConfirmed) {
 
-          const response = await fetch('/api/beneficiarios', {
+          const response = await fetch('https://proyectotemamantla-production.up.railway.app/api/beneficiarios', {
             method: 'POST',
             body: JSON.stringify(beneficiario),
             headers: {
