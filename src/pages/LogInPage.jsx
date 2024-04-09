@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/logo1.png';
+import logo from '../assets/Operador.png';
 import { useLogin } from '../hooks/useLogin';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -31,7 +31,7 @@ export const LogInPage = () => {
 
     <div className='container'>
 
-      <center><img src = {logo} alt='logo' height = "200px" width = "300px" data-aos = "fade-up" data-aos-duration="1200" /> </center>
+      <center><img src = {logo} alt='logo' height = "300px" width = "300px" data-aos = "fade-up" data-aos-duration="1200" /> </center>
 
       <h1> Bienvenido: </h1>
       <p> Ingresa la clave de operador </p>

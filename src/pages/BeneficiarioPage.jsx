@@ -3,7 +3,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import Select from "react-select";
-import { result, array_secciones_municipios } from "../data/municipios";
 import { validarFormatoClave, validarInfoClave, validarEdadClave } from '../helpers/valdiations'
 import { useAuthContext } from '../hooks/useAuthContext'
 import Swal from 'sweetalert2';
@@ -29,14 +28,11 @@ export const BeneficiarioPage = () => {
   const [clave_elector, setClave_elector] = useState('');
   const [telefono, setTelefono] = useState(0);
   const [facebook, setFacebook] = useState('');
-  const [municipio, setMunicipio] = useState('');
+  const municipio = "Temamantla"
   const [seccion, setSeccion] = useState('');
   const [beneficio, setBeneficio] = useState('');
 
   const [error, setError] = useState(null); 
-
-  const [secciones, setSecciones] = useState();
-  const [seccionesDisponible, setSeccionesDisponible] = useState(true);
 
   //Animacion
 
@@ -45,18 +41,6 @@ export const BeneficiarioPage = () => {
     AOS.init()
   
   }, [])
-
-  //Mostrar las secciones con base en el municipio
-
-  const handleSelect = ( selected ) => {
-
-    setSeccionesDisponible( false );
-
-    setMunicipio( selected );
-    //Creamos la data con base en el muncipio seleccionado
-    setSecciones( array_secciones_municipios[ selected.toUpperCase() ].map(item => ({ value: item, label: item })) );
-
-  }
 
   //Subir beneficiario
 
@@ -119,7 +103,7 @@ export const BeneficiarioPage = () => {
         
         if (result.isConfirmed) {
 
-          const response = await fetch('https://proyectoam-production.up.railway.app/api/beneficiarios', {
+          const response = await fetch('/api/beneficiarios', {
             method: 'POST',
             body: JSON.stringify(beneficiario),
             headers: {
@@ -263,36 +247,25 @@ export const BeneficiarioPage = () => {
                 <legend className='leyenda'><span className="number">3</span> <b>Localización</b> </legend>
 
                 <div className="column">
-                    <label itemID="Municipio">Municipio :</label>
-                    <br /><br />
-                    <Select
-                      className="basic-single"
-                      classNamePrefix="select"
-                      isLoading={true}
-                      isClearable={true}
-                      isSearchable={true}
-                      name="color"
-                      required = {true}
-                      options={result}
-                      onChange = { (choice) => handleSelect( choice.value ) }
+                  <label itemID="seccion">Seccion :</label>
+                  <br /><br />
+                  <Select
+                    className="basic-single"
+                    classNamePrefix="select"
+                    isLoading={true}
+                    isClearable={true}
+                    isSearchable={true}
+                    name="color"
+                    required={true}
+                    options={[
+                      { value: '4326', label: '4326' },
+                      { value: '4327', label: '4327' },
+                      { value: '4328', label: '4328' },
+                      { value: '4329', label: '4329' },
+                      { value: '4330', label: '4330' },
+                    ]}
+                    onChange={(choice) => setSeccion(choice.value)}
                   />
-                </div>
-
-                <div className="column">
-                    <label itemID="seccion">Seccion :</label>
-                    <br /><br />
-                    <Select
-                      isDisabled = { seccionesDisponible }
-                      className="basic-single"
-                      classNamePrefix="select"
-                      isLoading={true}
-                      isClearable={true}
-                      isSearchable={true}
-                      name="color"
-                      required = {true}
-                      options={secciones}
-                      onChange = { (choice) => setSeccion( choice.value ) }
-                    />
                 </div>
 
             </div>
